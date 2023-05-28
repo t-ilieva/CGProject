@@ -74,9 +74,14 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.DeleteButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.nameTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.enterNameButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.nameComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.enterNameButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.nameTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.viewPort = new Draw.DoubleBufferedPanel();
             this.mainMenu.SuspendLayout();
@@ -86,7 +91,6 @@
             // 
             // mainMenu
             // 
-            this.mainMenu.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.mainMenu.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.mainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
@@ -320,9 +324,14 @@
             this.toolStripSeparator2,
             this.DeleteButton,
             this.toolStripLabel1,
-            this.nameTextBox,
+            this.toolStripSeparator5,
+            this.nameComboBox,
+            this.toolStripSeparator4,
             this.enterNameButton,
-            this.nameComboBox});
+            this.toolStripSeparator3,
+            this.nameTextBox,
+            this.toolStripSeparator6,
+            this.toolStripSeparator7});
             this.speedMenu.Location = new System.Drawing.Point(0, 33);
             this.speedMenu.Name = "speedMenu";
             this.speedMenu.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
@@ -490,23 +499,13 @@
             this.toolStripLabel1.Size = new System.Drawing.Size(0, 29);
             this.toolStripLabel1.Text = "toolStripLabel1";
             // 
-            // nameTextBox
+            // toolStripSeparator5
             // 
-            this.nameTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(100, 34);
-            // 
-            // enterNameButton
-            // 
-            this.enterNameButton.BackColor = System.Drawing.SystemColors.Control;
-            this.enterNameButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.enterNameButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enterNameButton.Image = ((System.Drawing.Image)(resources.GetObject("enterNameButton.Image")));
-            this.enterNameButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.enterNameButton.Name = "enterNameButton";
-            this.enterNameButton.Size = new System.Drawing.Size(61, 29);
-            this.enterNameButton.Text = "Enter";
-            this.enterNameButton.Click += new System.EventHandler(this.enterNameButton_Click);
+            this.toolStripSeparator5.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripSeparator5.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.toolStripSeparator5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 34);
             // 
             // nameComboBox
             // 
@@ -516,10 +515,62 @@
             this.nameComboBox.Name = "nameComboBox";
             this.nameComboBox.Size = new System.Drawing.Size(150, 34);
             this.nameComboBox.Sorted = true;
-            this.nameComboBox.ToolTipText = "Select";
+            this.nameComboBox.ToolTipText = "Select By Name";
             this.nameComboBox.DropDown += new System.EventHandler(this.shapeNameComboBox_DropDown);
             this.nameComboBox.SelectedIndexChanged += new System.EventHandler(this.nameComboBox_SelectedIndexChanged);
             this.nameComboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nameComboBox_KeyPress);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripSeparator4.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.toolStripSeparator4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 34);
+            // 
+            // enterNameButton
+            // 
+            this.enterNameButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.enterNameButton.BackColor = System.Drawing.SystemColors.Control;
+            this.enterNameButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.enterNameButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enterNameButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.enterNameButton.Image = ((System.Drawing.Image)(resources.GetObject("enterNameButton.Image")));
+            this.enterNameButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.enterNameButton.Name = "enterNameButton";
+            this.enterNameButton.Size = new System.Drawing.Size(61, 29);
+            this.enterNameButton.Text = "Enter";
+            this.enterNameButton.Click += new System.EventHandler(this.enterNameButton_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripSeparator3.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.toolStripSeparator3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 34);
+            // 
+            // nameTextBox
+            // 
+            this.nameTextBox.AccessibleDescription = "";
+            this.nameTextBox.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(100, 34);
+            this.nameTextBox.Tag = "";
+            this.nameTextBox.ToolTipText = "Name for shape";
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 34);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripSeparator7.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.toolStripSeparator7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 34);
             // 
             // viewPort
             // 
@@ -609,5 +660,10 @@
         private System.Windows.Forms.ToolStripComboBox nameComboBox;
         private System.Windows.Forms.ToolStripTextBox nameTextBox;
         private System.Windows.Forms.ToolStripButton enterNameButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
     }
 }
