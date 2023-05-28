@@ -53,6 +53,11 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="src\AssemblyInfo.cs" />
     <Compile Include="src\GUI\DoubleBufferedPanel.cs">
       <SubType>UserControl</SubType>
@@ -73,6 +78,11 @@
     <Compile Include="src\Model\Shape.cs" />
     <Compile Include="src\Processors\DialogProcessor.cs" />
     <Compile Include="src\Processors\DisplayProcessor.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="src\GUI\DoubleBufferedPanel.resx">
       <DependentUpon>DoubleBufferedPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -115,4 +125,5 @@
   <ItemGroup>
     <None Include="app.config" />
   </ItemGroup>
+  <ItemGroup />
 </Project>

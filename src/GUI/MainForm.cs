@@ -154,16 +154,6 @@ namespace Draw
             }
         }
 
-
-        //СЕЛЕКЦИЯ
-        private void DeleteButton_Click(object sender, EventArgs e)
-        {
-            dialogProcessor.DeleteSelectedShapes();
-            statusBar.Items[0].Text = "Последно действие: Изтриване на селектираните фигури.";
-            viewPort.Invalidate();
-        }
-
-
         //ГРУПИРАНЕ
         private void GroupButton_Click(object sender, EventArgs e)
         {
@@ -172,12 +162,20 @@ namespace Draw
             viewPort.Invalidate();
         }
 
-        //ИЗТРИВАНЕ НА ВСИЧКО
-        private void deleteAllToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ungroupToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            dialogProcessor.DeleteAll();
-            statusBar.Items[0].Text = "Последно действие: Изтриване на всичко";
+            dialogProcessor.UngroupShape();
+            statusBar.Items[0].Text = "Последно действие: Разгрупиране";
             viewPort.Invalidate();
+        }
+
+        private void removeRectanglesFromGroupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void removeEllipsesFromGroupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
 
 
@@ -213,6 +211,14 @@ namespace Draw
             viewPort.Invalidate();
         }
 
+        private void unselectAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dialogProcessor.UnselectAllShapes();
+            statusBar.Items[0].Text = "Последно действие: Премахване на селекция";
+            viewPort.Invalidate();
+        }
+
+        //КОПИРАНЕ И ПОСТАВЯНЕ
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dialogProcessor.CopyShapes();
@@ -227,28 +233,18 @@ namespace Draw
             viewPort.Invalidate();
         }
 
-        private void unselectAllToolStripMenuItem_Click(object sender, EventArgs e)
+        //ИЗТРИВАНЕ
+        private void deleteAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            dialogProcessor.UnselectAllShapes();
-            statusBar.Items[0].Text = "Последно действие: Премахване на селекция";
+            dialogProcessor.DeleteAll();
+            statusBar.Items[0].Text = "Последно действие: Изтриване на всичко";
             viewPort.Invalidate();
         }
-
-        private void ungroupToolStripMenuItem_Click(object sender, EventArgs e)
+        private void DeleteButton_Click(object sender, EventArgs e)
         {
-            dialogProcessor.UngroupShape();
-            statusBar.Items[0].Text = "Последно действие: Разгрупиране";
+            dialogProcessor.DeleteSelectedShapes();
+            statusBar.Items[0].Text = "Последно действие: Изтриване на селектираните фигури.";
             viewPort.Invalidate();
-        }
-
-        private void rectanglesToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ellipsesToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
