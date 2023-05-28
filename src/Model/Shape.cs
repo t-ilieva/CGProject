@@ -112,13 +112,10 @@ namespace Draw
 
 		public virtual void GroupFillColor(Color color)
         {
-
         }
 
 		public virtual void GroupBorderColor(Color color)
 		{ 
-
         }
-
-    }
+	}
 }
