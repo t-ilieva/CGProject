@@ -267,8 +267,10 @@ namespace Draw
                     nameComboBox.Items.Add(name);
                 }
             }
+            viewPort.Invalidate();
         }
 
+        //ТЪРСЕНЕ ПО ИМЕ НА ФИГУРА
         private void enterNameButton_Click(object sender, EventArgs e)
         {
        
@@ -279,7 +281,7 @@ namespace Draw
                 List<string> names = dialogProcessor.GetNames();
                 if (names.Contains(name))
                 {
-                    int counter = names.Where(x => x.Equals(name)).Count();
+                    int counter = names.Where(x => x.StartsWith(name)).Count();
                     shape.Name = name + " (" + counter + ")";
                 }
                 else
@@ -288,6 +290,42 @@ namespace Draw
                 }
 
             }
+            viewPort.Invalidate();
+        }
+
+        private void nameComboBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string search = nameComboBox.Text;
+            nameComboBox.SelectedItem = null;
+
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                int index = nameComboBox.FindString(search);
+                if (index != -1)
+                {
+                    nameComboBox.SelectedItem = nameComboBox.Items[index];
+                }
+            }
+            viewPort.Invalidate();
+        }
+
+        private void nameComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dialogProcessor.Selection.Clear();
+            if (nameComboBox.SelectedItem != null)
+            {
+                string name = nameComboBox.SelectedItem.ToString();
+
+                foreach (var shape in dialogProcessor.ShapeList)
+                {
+                    if (shape.Name.Equals(name))
+                    {
+
+                        dialogProcessor.Selection.Add(shape);
+                    }
+                }
+            }
+            viewPort.Invalidate();
         }
     }
 }
