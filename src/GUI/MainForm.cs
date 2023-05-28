@@ -154,7 +154,7 @@ namespace Draw
         //ГРУПИРАНЕ
         private void GroupButton_Click(object sender, EventArgs e)
         {
-            dialogProcessor.GroupSelectedShapes();
+            dialogProcessor.GroupSelectedShapes(dialogProcessor.Selection);
             statusBar.Items[0].Text = "Последно действие: Групиране";
             viewPort.Invalidate();
         }
@@ -168,13 +168,13 @@ namespace Draw
 
         private void removeRectanglesFromGroupToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //dialogProcessor.GroupRemoveShapes("RectangleShape");
+            dialogProcessor.GroupRemoveShapes("RectangleShape");
             statusBar.Items[0].Text = "Последно действие: Премахване на правоъгълници от селектираните групи";
             viewPort.Invalidate();
         }
         private void removeEllipsesFromGroupToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //dialogProcessor.GroupRemoveShapes("EllipseShape");
+            dialogProcessor.GroupRemoveShapes("EllipseShape");
             statusBar.Items[0].Text = "Последно действие: Премахване на елипси от селектираните групи";
             viewPort.Invalidate();
         }

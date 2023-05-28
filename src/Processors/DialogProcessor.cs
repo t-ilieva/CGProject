@@ -218,6 +218,7 @@ namespace Draw
                 }
             }
         }
+
         public void SelectOpacity(int opacity)
         {
             foreach (var shape in Selection)
@@ -235,15 +236,15 @@ namespace Draw
 
 
         //ГРУПИРАНЕ
-        public void GroupSelectedShapes()
+        public void GroupSelectedShapes(List<Shape> shapes)
         {
-            if (Selection.Count > 1)
+            if (shapes.Count > 1)
             {
                 float minX = float.PositiveInfinity;
                 float minY = float.PositiveInfinity;
                 float maxX = float.NegativeInfinity;
                 float maxY = float.NegativeInfinity;
-                foreach (var shape in Selection)
+                foreach (var shape in shapes)
                 {
                     if (minX > shape.Location.X)
                     {
@@ -263,9 +264,9 @@ namespace Draw
                     }
                 }
                 GroupShape group = new GroupShape(new RectangleF(minX, minY, maxX - minX, maxY - minY));
-                group.SubShape = Selection;
+                group.SubShape = shapes;
 
-                foreach (var shape1 in Selection)
+                foreach (var shape1 in shapes)
                 {
                     ShapeList.Remove(shape1);
                 }
@@ -274,6 +275,41 @@ namespace Draw
                 Selection.Add(group);
                 ShapeList.Add(group);
             }
+        }
+
+        internal void GroupRemoveShapes(String shapeType)
+        {
+            List<Shape> newSelection = new List<Shape>();
+
+            foreach (var shape in Selection)
+            {
+                if (shape is GroupShape)
+                {
+                    GroupShape groupShape = (GroupShape)shape;
+                    List<Shape> removed = new List<Shape>();
+                    List<Shape> newSubShape = new List<Shape>();
+
+                    foreach (var subShape in groupShape.SubShape)
+                    {
+                        if (subShape.GetType().Name.ToString() == shapeType)
+                        {
+                            removed.Add(subShape);
+                        }
+                        else
+                        {
+                            newSubShape.Add(subShape);
+                        }
+                    }
+
+                    GroupSelectedShapes(newSubShape);
+                    ShapeList.Remove(shape);
+                    ShapeList.AddRange(removed);
+                    newSelection.AddRange(removed);
+                }
+            }
+
+            Selection.Clear();
+            Selection = newSelection;
         }
 
         public void UngroupShape()
