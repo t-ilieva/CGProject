@@ -72,6 +72,7 @@
             this.FillColorButton = new System.Windows.Forms.ToolStripButton();
             this.BorderColorButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.DeleteButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
@@ -81,16 +82,19 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.nameTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.opacityComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.viewPort = new Draw.DoubleBufferedPanel();
             this.mainMenu.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.speedMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // mainMenu
             // 
+            this.mainMenu.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.mainMenu.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.mainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
@@ -322,6 +326,7 @@
             this.FillColorButton,
             this.BorderColorButton,
             this.toolStripSeparator2,
+            this.toolStripSeparator7,
             this.DeleteButton,
             this.toolStripLabel1,
             this.toolStripSeparator5,
@@ -331,7 +336,7 @@
             this.toolStripSeparator3,
             this.nameTextBox,
             this.toolStripSeparator6,
-            this.toolStripSeparator7});
+            this.opacityComboBox});
             this.speedMenu.Location = new System.Drawing.Point(0, 33);
             this.speedMenu.Name = "speedMenu";
             this.speedMenu.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
@@ -482,8 +487,17 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 34);
             // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripSeparator7.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.toolStripSeparator7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 34);
+            // 
             // DeleteButton
             // 
+            this.DeleteButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.DeleteButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.DeleteButton.Image = ((System.Drawing.Image)(resources.GetObject("DeleteButton.Image")));
             this.DeleteButton.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -554,6 +568,7 @@
             // 
             this.nameTextBox.AccessibleDescription = "";
             this.nameTextBox.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.nameTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(100, 34);
             this.nameTextBox.Tag = "";
@@ -561,16 +576,39 @@
             // 
             // toolStripSeparator6
             // 
+            this.toolStripSeparator6.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripSeparator6.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.toolStripSeparator6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             this.toolStripSeparator6.Size = new System.Drawing.Size(6, 34);
             // 
-            // toolStripSeparator7
+            // opacityComboBox
             // 
-            this.toolStripSeparator7.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripSeparator7.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.toolStripSeparator7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 34);
+            this.opacityComboBox.Items.AddRange(new object[] {
+            "0%",
+            "10%",
+            "20%",
+            "30%",
+            "40%",
+            "50%",
+            "60%",
+            "70%",
+            "80%",
+            "90%",
+            "100%"});
+            this.opacityComboBox.Name = "opacityComboBox";
+            this.opacityComboBox.Size = new System.Drawing.Size(121, 34);
+            this.opacityComboBox.Text = "Opacity";
+            this.opacityComboBox.SelectedIndexChanged += new System.EventHandler(this.opacityComboBox_SelectedIndexChanged);
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.Location = new System.Drawing.Point(0, 86);
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(204, 69);
+            this.trackBar1.TabIndex = 5;
+            this.trackBar1.Tag = "Border Width";
+            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // viewPort
             // 
@@ -590,6 +628,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1040, 651);
+            this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.viewPort);
             this.Controls.Add(this.speedMenu);
             this.Controls.Add(this.statusBar);
@@ -605,6 +644,7 @@
             this.statusBar.PerformLayout();
             this.speedMenu.ResumeLayout(false);
             this.speedMenu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -665,5 +705,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.ToolStripComboBox opacityComboBox;
     }
 }

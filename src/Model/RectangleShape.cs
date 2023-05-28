@@ -45,8 +45,8 @@ namespace Draw
 		{
 			base.DrawSelf(grfx);
 			
-			grfx.FillRectangle(new SolidBrush(FillColor),Rectangle.X, Rectangle.Y, Rectangle.Width, Rectangle.Height);
-			grfx.DrawRectangle(new Pen(StrokeColor),Rectangle.X, Rectangle.Y, Rectangle.Width, Rectangle.Height);
+			grfx.FillRectangle(new SolidBrush(Color.FromArgb(Opacity, FillColor)),Rectangle.X, Rectangle.Y, Rectangle.Width, Rectangle.Height);
+			grfx.DrawRectangle(new Pen(StrokeColor, BorderWidth),Rectangle.X, Rectangle.Y, Rectangle.Width, Rectangle.Height);
 			
 		}
 	}

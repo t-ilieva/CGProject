@@ -82,5 +82,23 @@ namespace Draw
 				shape.StrokeColor = color;
 			}
 		}
-	}
+
+        public override void GroupBorderWidth(int borderWidth)
+        {
+            base.GroupBorderWidth(borderWidth);
+			foreach (var shape in SubShape)
+			{
+				shape.BorderWidth = borderWidth;
+			}
+		}
+
+        public override void GroupOpacity(int opacity)
+        {
+            base.GroupOpacity(opacity);
+			foreach (var shape in SubShape)
+			{
+				shape.Opacity = opacity;
+			}
+		}
+    }
 }

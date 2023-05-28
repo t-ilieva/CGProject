@@ -135,6 +135,7 @@ namespace Draw
             RectangleShape rect = new RectangleShape(new Rectangle(x, y, 100, 200));
             rect.FillColor = Color.White;
             rect.StrokeColor = Color.Black;
+            rect.Opacity = 255;
 
             ShapeList.Add(rect);
         }
@@ -148,6 +149,7 @@ namespace Draw
             EllipseShape ellipse = new EllipseShape(new Rectangle(x, y, 100, 200));
             ellipse.FillColor = Color.White;
             ellipse.StrokeColor = Color.Black;
+            ellipse.Opacity = 255;
 
             ShapeList.Add(ellipse);
         }
@@ -180,6 +182,35 @@ namespace Draw
                 else
                 {
                     shape.FillColor = color;
+                }
+            }
+        }
+
+        public void SelectBorderWidth(int borderWidth)
+        {
+            foreach (var shape in Selection)
+            {
+                if (shape is GroupShape)
+                {
+                    shape.GroupBorderWidth(borderWidth);
+                }
+                else
+                {
+                    shape.BorderWidth = borderWidth;
+                }
+            }
+        }
+        public void SelectOpacity(int opacity)
+        {
+            foreach (var shape in Selection)
+            {
+                if (shape is GroupShape)
+                {
+                    shape.GroupOpacity(opacity);
+                }
+                else
+                {
+                    shape.Opacity = opacity;
                 }
             }
         }
@@ -348,6 +379,7 @@ namespace Draw
                             RectangleShape rect = new RectangleShape(new Rectangle(x + 10, y + 10, width, height));
                             rect.FillColor = shape.FillColor;
                             rect.StrokeColor = shape.StrokeColor;
+                            rect.Opacity = shape.Opacity;
                             ShapeList.Add(rect);
                             break;
 
@@ -355,6 +387,7 @@ namespace Draw
                             EllipseShape ellipse = new EllipseShape(new Rectangle(x + 10, y + 10, width, height));
                             ellipse.FillColor = shape.FillColor;
                             ellipse.StrokeColor = shape.StrokeColor;
+                            ellipse.Opacity = shape.Opacity;
                             ShapeList.Add(ellipse);
                             break;
                     }
@@ -378,6 +411,7 @@ namespace Draw
                         RectangleShape rect = new RectangleShape(new Rectangle(x + 10, y + 10, width, height));
                         rect.FillColor = shape.FillColor;
                         rect.StrokeColor = shape.StrokeColor;
+                        rect.Opacity = shape.Opacity;
                         newSubShape.Add(rect);
                         break;
 
@@ -385,6 +419,7 @@ namespace Draw
                         EllipseShape ellipse = new EllipseShape(new Rectangle(x + 10, y + 10, width, height));
                         ellipse.FillColor = shape.FillColor;
                         ellipse.StrokeColor = shape.StrokeColor;
+                        ellipse.Opacity = shape.Opacity;
                         newSubShape.Add(ellipse);
                         break;
                 }

@@ -81,6 +81,21 @@ namespace Draw
 			set { strokeColor = value; }
 		}
 
+		private int borderWidth;
+        public int BorderWidth
+		{
+			get { return borderWidth; }
+			set { borderWidth = value; }
+		}
+
+		private int opacity;
+		public int Opacity
+		{
+			get { return opacity; }
+			set { opacity = value; }
+		}
+
+
 		private string name = "";
 
 		public virtual string Name
@@ -125,5 +140,13 @@ namespace Draw
 		public virtual void GroupBorderColor(Color color)
 		{ 
         }
+
+		public virtual void GroupBorderWidth(int borderWidth)
+		{
+		}
+
+		public virtual void GroupOpacity(int opacity)
+		{
+		}
 	}
 }

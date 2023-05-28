@@ -273,8 +273,8 @@ namespace Draw
         //ТЪРСЕНЕ ПО ИМЕ НА ФИГУРА
         private void enterNameButton_Click(object sender, EventArgs e)
         {
-       
-            foreach(var shape in dialogProcessor.Selection)
+
+            foreach (var shape in dialogProcessor.Selection)
             {
                 shape.Name = "";
                 string name = nameTextBox.Text;
@@ -327,8 +327,62 @@ namespace Draw
             }
             viewPort.Invalidate();
         }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            if (dialogProcessor.Selection.Count > 0)
+            {
+                dialogProcessor.SelectBorderWidth(((int)trackBar1.Value));
+                statusBar.Items[0].Text = "Последно действие: Промяна на дебелина на линия";
+                viewPort.Invalidate();
+            }
+        }
+
+        private void opacityComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int opacity = 255;
+            switch (opacityComboBox.SelectedIndex)
+            {
+                case 0:
+                    opacity = 0;
+                    break;
+                case 1:
+                    opacity = 25;
+                    break;
+                case 2:
+                    opacity = 55;
+                    break;
+                case 3:
+                    opacity = 90;
+                    break;
+                case 4:
+                    opacity = 105;
+                    break;
+                case 5:
+                    opacity = 130;
+                    break;
+                case 6:
+                    opacity = 155;
+                    break;
+                case 7:
+                    opacity = 180;
+                    break;
+                case 8:
+                    opacity =205;
+                    break;
+                case 9:
+                    opacity = 230;
+                    break;
+                case 10:
+                    opacity = 255;
+                    break;
+            }
+
+            dialogProcessor.SelectOpacity(opacity);
+            statusBar.Items[0].Text = "Последно действие: Промяна на прозрачност";
+            viewPort.Invalidate();
+        }
     }
 }
 
 
-    
