@@ -5,7 +5,9 @@ namespace Draw
 {
 	/// <summary>
 	/// Класът правоъгълник е основен примитив, който е наследник на базовия Shape.
-	/// </summary>
+	/// </summary>\
+
+	[Serializable]
 	public class EllipseShape : Shape
 	{
 		#region Constructor
@@ -59,6 +61,7 @@ namespace Draw
 
 			grfx.FillEllipse(new SolidBrush(Color.FromArgb(Opacity, FillColor)), Rectangle.X, Rectangle.Y, Rectangle.Width, Rectangle.Height);
 			grfx.DrawEllipse(new Pen(StrokeColor, BorderWidth), Rectangle.X, Rectangle.Y, Rectangle.Width, Rectangle.Height);
+			grfx.ResetTransform();
 
 		}
 	}

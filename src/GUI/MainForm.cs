@@ -382,6 +382,39 @@ namespace Draw
             statusBar.Items[0].Text = "Последно действие: Промяна на прозрачност";
             viewPort.Invalidate();
         }
+
+        private void rotateRight90ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Graphics grfx = this.CreateGraphics();
+            dialogProcessor.Rotate(grfx, 90);
+            statusBar.Items[0].Text = "Последно действие: Промяна на прозрачност";
+            viewPort.Invalidate();
+        }
+
+        private void rotateLeft90ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rotate180ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dialogProcessor.SaveFile(dialogProcessor.ShapeList);
+            statusBar.Items[0].Text = "Последно действие: Запазване на файл";
+            viewPort.Invalidate();
+        }
+
+        private void importToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dialogProcessor.ImportFile();
+            dialogProcessor.ShapeList = dialogProcessor.importedShapes;
+            statusBar.Items[0].Text = "Последно действие: Импортиране на файл";
+            viewPort.Invalidate();
+        }
     }
 }
 

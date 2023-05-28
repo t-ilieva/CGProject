@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 
 namespace Draw
 {
 	/// <summary>
 	/// Класът правоъгълник е основен примитив, който е наследник на базовия Shape.
 	/// </summary>
+	/// 
+
+	[Serializable]
 	public class GroupShape : Shape
 	{
 		#region Constructor
@@ -100,5 +104,9 @@ namespace Draw
 				shape.Opacity = opacity;
 			}
 		}
+
+        public override void GroupRotate(float angle)
+        {
+        }
     }
 }

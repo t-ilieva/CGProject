@@ -2,6 +2,11 @@
 using System.Drawing;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Drawing.Drawing2D;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
+using System.Drawing.Imaging;
 
 namespace Draw
 {
@@ -14,11 +19,22 @@ namespace Draw
 
         public DialogProcessor()
         {
+            this.importedShapes = new List<Shape>();
+            this.exportFormatDialog = new SaveFileDialog();
+            this.importFormatDialog = new OpenFileDialog();
+            this.formatter = new BinaryFormatter();
         }
 
         #endregion
 
         #region Properties
+
+        private readonly BinaryFormatter formatter;
+        private readonly SaveFileDialog exportFormatDialog;
+        private readonly OpenFileDialog importFormatDialog;
+        //private FileStream streamToFiles;
+        public List<Shape> importedShapes;
+
 
         /// <summary>
         /// Избран елемент.
@@ -78,7 +94,9 @@ namespace Draw
             foreach (var shape in Selection)
             {
                 grfx.DrawRectangle(Pens.Black, shape.Rectangle.X - 3, shape.Rectangle.Y - 3, shape.Rectangle.Width + 6, shape.Rectangle.Height + 6);
+                grfx.ResetTransform();
             }
+
         }
 
         public Shape ContainsPoint(PointF point)
@@ -461,5 +479,64 @@ namespace Draw
 
             return names;
         }
+
+
+        public void Rotate(Graphics grfx, float angle)
+        {
+            
+            foreach (var shape in Selection)
+            {
+            }
+        }
+
+        //ЗАПАЗВАНЕ И ЧЕТЕНЕ НА ФЕЙЛОВЕ
+        public void SaveFile(List<Shape> shapes)
+        {
+            exportFormatDialog.DefaultExt = "pg";
+            exportFormatDialog.Title = "Save this file";
+            exportFormatDialog.Filter = "PG file (*.pg)|*.pg|All files (*.*)|*.*";
+
+
+            if (DialogResult.OK == exportFormatDialog.ShowDialog())
+            {
+                string filePath = exportFormatDialog.FileName;
+
+                if (File.Exists(filePath))
+                {
+                    File.Delete(filePath);
+                }
+
+                FileStream fileStream = new FileStream(filePath, FileMode.CreateNew);
+
+                try
+                {
+                    formatter.Serialize(fileStream, shapes);
+
+                }
+                catch (SerializationException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    throw;
+                }
+                fileStream.Close();
+
+            }
+
+
+        }
+
+        public void ImportFile()
+        {
+            importFormatDialog.ShowDialog();
+
+            string filePath = importFormatDialog.FileName;
+
+            FileStream fileStream = File.Open(filePath, FileMode.Open);
+
+            importedShapes = (List<Shape>)formatter.Deserialize(fileStream);
+
+        }
+
+
     }
 }

@@ -32,6 +32,7 @@
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -83,8 +84,13 @@
             this.nameTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.opacityComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.rotateRight90ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rotateLeft90ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rotate180ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewPort = new Draw.DoubleBufferedPanel();
             this.mainMenu.SuspendLayout();
             this.statusBar.SuspendLayout();
@@ -112,7 +118,9 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exitToolStripMenuItem});
+            this.exitToolStripMenuItem,
+            this.saveToolStripMenuItem,
+            this.importToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(54, 29);
             this.fileToolStripMenuItem.Text = "File";
@@ -120,9 +128,16 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(141, 34);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItemClick);
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
@@ -336,7 +351,8 @@
             this.toolStripSeparator3,
             this.nameTextBox,
             this.toolStripSeparator6,
-            this.opacityComboBox});
+            this.opacityComboBox,
+            this.toolStripDropDownButton2});
             this.speedMenu.Location = new System.Drawing.Point(0, 33);
             this.speedMenu.Name = "speedMenu";
             this.speedMenu.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
@@ -601,6 +617,40 @@
             this.opacityComboBox.Text = "Opacity";
             this.opacityComboBox.SelectedIndexChanged += new System.EventHandler(this.opacityComboBox_SelectedIndexChanged);
             // 
+            // toolStripDropDownButton2
+            // 
+            this.toolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.rotateRight90ToolStripMenuItem,
+            this.rotateLeft90ToolStripMenuItem,
+            this.rotate180ToolStripMenuItem});
+            this.toolStripDropDownButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton2.Image")));
+            this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
+            this.toolStripDropDownButton2.Size = new System.Drawing.Size(42, 29);
+            this.toolStripDropDownButton2.Text = "toolStripDropDownButton2";
+            // 
+            // rotateRight90ToolStripMenuItem
+            // 
+            this.rotateRight90ToolStripMenuItem.Name = "rotateRight90ToolStripMenuItem";
+            this.rotateRight90ToolStripMenuItem.Size = new System.Drawing.Size(244, 34);
+            this.rotateRight90ToolStripMenuItem.Text = "Rotate Right 90°";
+            this.rotateRight90ToolStripMenuItem.Click += new System.EventHandler(this.rotateRight90ToolStripMenuItem_Click);
+            // 
+            // rotateLeft90ToolStripMenuItem
+            // 
+            this.rotateLeft90ToolStripMenuItem.Name = "rotateLeft90ToolStripMenuItem";
+            this.rotateLeft90ToolStripMenuItem.Size = new System.Drawing.Size(244, 34);
+            this.rotateLeft90ToolStripMenuItem.Text = "Rotate Left 90°";
+            this.rotateLeft90ToolStripMenuItem.Click += new System.EventHandler(this.rotateLeft90ToolStripMenuItem_Click);
+            // 
+            // rotate180ToolStripMenuItem
+            // 
+            this.rotate180ToolStripMenuItem.Name = "rotate180ToolStripMenuItem";
+            this.rotate180ToolStripMenuItem.Size = new System.Drawing.Size(244, 34);
+            this.rotate180ToolStripMenuItem.Text = "Rotate 180°";
+            this.rotate180ToolStripMenuItem.Click += new System.EventHandler(this.rotate180ToolStripMenuItem_Click);
+            // 
             // trackBar1
             // 
             this.trackBar1.Location = new System.Drawing.Point(0, 86);
@@ -609,6 +659,13 @@
             this.trackBar1.TabIndex = 5;
             this.trackBar1.Tag = "Border Width";
             this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            // 
+            // importToolStripMenuItem
+            // 
+            this.importToolStripMenuItem.Name = "importToolStripMenuItem";
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.importToolStripMenuItem.Text = "Import";
+            this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
             // 
             // viewPort
             // 
@@ -707,5 +764,11 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.ToolStripComboBox opacityComboBox;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton2;
+        private System.Windows.Forms.ToolStripMenuItem rotateRight90ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rotateLeft90ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rotate180ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
     }
 }

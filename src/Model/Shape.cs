@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 
 namespace Draw
 {
 	/// <summary>
 	/// Базовия клас на примитивите, който съдържа общите характеристики на примитивите.
-	/// </summary>
+	/// </summary
+	/// 
+
+	[Serializable]
 	public abstract class Shape
 	{
 		#region Constructors
@@ -64,7 +68,7 @@ namespace Draw
 			get { return Rectangle.Location; }
 			set { rectangle.Location = value; }
 		}
-		
+
 		/// <summary>
 		/// Цвят на елемента.
 		/// </summary>
@@ -82,14 +86,14 @@ namespace Draw
 		}
 
 		private int borderWidth;
-        public int BorderWidth
+        public virtual int BorderWidth
 		{
 			get { return borderWidth; }
 			set { borderWidth = value; }
 		}
 
 		private int opacity;
-		public int Opacity
+		public virtual int Opacity
 		{
 			get { return opacity; }
 			set { opacity = value; }
@@ -146,6 +150,10 @@ namespace Draw
 		}
 
 		public virtual void GroupOpacity(int opacity)
+		{
+		}
+
+		public virtual void GroupRotate(float angle)
 		{
 		}
 	}
