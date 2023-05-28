@@ -269,6 +269,12 @@ namespace Draw
             }
         }
 
+        public void UnselectAllShapes()
+        {
+            Selection = new List<Shape>();
+
+        }
+
         //КОПИРАНЕ И ПОСТАВЯНЕ
 
         public void CopyShapes()

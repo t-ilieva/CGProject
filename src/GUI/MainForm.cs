@@ -226,6 +226,13 @@ namespace Draw
             statusBar.Items[0].Text = "Последно действие: Поставяне на копираните фигури.";
             viewPort.Invalidate();
         }
+
+        private void unselectAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dialogProcessor.UnselectAllShapes();
+            statusBar.Items[0].Text = "Последно действие: Премахване на селекция";
+            viewPort.Invalidate();
+        }
     }
 }
 
