@@ -199,7 +199,7 @@ namespace Draw
                 }
                 else
                 {
-                    shape.FillColor = color;
+                    shape.StrokeColor = color;
                 }
             }
         }
@@ -490,7 +490,7 @@ namespace Draw
         }
 
         //ЗАПАЗВАНЕ И ЧЕТЕНЕ НА ФЕЙЛОВЕ
-        public void SaveFile(List<Shape> shapes)
+        public void SaveFile(List<Shape> shapes, Bitmap bitmap)
         {
             exportFormatDialog.DefaultExt = "pg";
             exportFormatDialog.Title = "Save this file";
@@ -505,6 +505,8 @@ namespace Draw
                 {
                     File.Delete(filePath);
                 }
+
+                //bitmap.Save(filePath, System.Drawing.Imaging.ImageFormat.Bmp);
 
                 FileStream fileStream = new FileStream(filePath, FileMode.CreateNew);
 
@@ -531,9 +533,12 @@ namespace Draw
 
             string filePath = importFormatDialog.FileName;
 
-            FileStream fileStream = File.Open(filePath, FileMode.Open);
+            if(filePath != null && File.Exists(filePath))
+            {
+                FileStream fileStream = File.Open(filePath, FileMode.Open);
 
-            importedShapes = (List<Shape>)formatter.Deserialize(fileStream);
+                importedShapes = (List<Shape>)formatter.Deserialize(fileStream);
+            }
 
         }
 

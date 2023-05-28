@@ -403,7 +403,9 @@ namespace Draw
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            dialogProcessor.SaveFile(dialogProcessor.ShapeList);
+            Bitmap bm = new Bitmap(viewPort.Width, viewPort.Height);
+            viewPort.DrawToBitmap(bm, new Rectangle(0, 0, bm.Width, bm.Height));
+            dialogProcessor.SaveFile(dialogProcessor.ShapeList, bm);
             statusBar.Items[0].Text = "Последно действие: Запазване на файл";
             viewPort.Invalidate();
         }
