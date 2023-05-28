@@ -228,6 +228,9 @@ namespace Draw
 
         public void UngroupShape()
         {
+
+            List<Shape> newSelection = new List<Shape>();
+
             foreach (var shape in Selection)
             {
                 if (shape is GroupShape)
@@ -237,11 +240,13 @@ namespace Draw
                     ShapeList.AddRange(groupShape.SubShape);
                     ShapeList.Remove(shape);
 
+                    newSelection.AddRange(groupShape.SubShape);
                     groupShape.SubShape.Clear();
                 }
             }
 
             Selection.Clear();
+            Selection = newSelection;
         }
 
 
