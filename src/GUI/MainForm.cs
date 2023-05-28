@@ -115,9 +115,7 @@ namespace Draw
         void DrawRectangleSpeedButtonClick(object sender, EventArgs e)
         {
             dialogProcessor.AddRandomRectangle();
-
             statusBar.Items[0].Text = "Последно действие: Рисуване на правоъгълник";
-
             viewPort.Invalidate();
         }
 
@@ -129,9 +127,7 @@ namespace Draw
         void DrawEllipseSpeedButtonClick(object sender, EventArgs e)
         {
             dialogProcessor.AddRandomElipse();
-
             statusBar.Items[0].Text = "Последно действие: Рисуване на елипса";
-
             viewPort.Invalidate();
         }
 
@@ -150,7 +146,7 @@ namespace Draw
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 dialogProcessor.SelectBorderColor(colorDialog1.Color);
-                statusBar.Items[0].Text = "Последно действие: Промяна на цвят на границата на селектираните фигури.";
+                statusBar.Items[0].Text = "Последно действие: Промяна на цвят на граница на селектираните фигури.";
                 viewPort.Invalidate();
             }
         }
@@ -172,11 +168,15 @@ namespace Draw
 
         private void removeRectanglesFromGroupToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            //dialogProcessor.GroupRemoveShapes("RectangleShape");
+            statusBar.Items[0].Text = "Последно действие: Премахване на правоъгълници от селектираните групи";
+            viewPort.Invalidate();
         }
         private void removeEllipsesFromGroupToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            //dialogProcessor.GroupRemoveShapes("EllipseShape");
+            statusBar.Items[0].Text = "Последно действие: Премахване на елипси от селектираните групи";
+            viewPort.Invalidate();
         }
 
 
@@ -202,6 +202,13 @@ namespace Draw
         {
             dialogProcessor.SelectEllipses();
             statusBar.Items[0].Text = "Последно действие: Селекция на всички елипси";
+            viewPort.Invalidate();
+        }
+
+        private void selectGroupsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            dialogProcessor.SelectGroups();
+            statusBar.Items[0].Text = "Последно действие: Селекция на всички групи";
             viewPort.Invalidate();
         }
 
@@ -270,7 +277,7 @@ namespace Draw
             viewPort.Invalidate();
         }
 
-        //ТЪРСЕНЕ ПО ИМЕ НА ФИГУРА
+        //ИМЕНУВАНЕ И ТЪРСЕНЕ ПО ИМЕ НА ФИГУРА
         private void enterNameButton_Click(object sender, EventArgs e)
         {
 
@@ -383,24 +390,8 @@ namespace Draw
             viewPort.Invalidate();
         }
 
-        private void rotateRight90ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Graphics grfx = this.CreateGraphics();
-            dialogProcessor.Rotate(grfx, 90);
-            statusBar.Items[0].Text = "Последно действие: Промяна на прозрачност";
-            viewPort.Invalidate();
-        }
 
-        private void rotateLeft90ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rotate180ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        //ЗАПАЗВАНЕ И ИМПОРТИРАНЕ НА ФАЙЛ
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Bitmap bm = new Bitmap(viewPort.Width, viewPort.Height);

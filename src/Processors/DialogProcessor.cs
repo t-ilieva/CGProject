@@ -332,6 +332,19 @@ namespace Draw
             }
         }
 
+        public void SelectGroups()
+        {
+            Selection = new List<Shape>();
+
+            foreach (var shape in ShapeList)
+            {
+                if (shape is GroupShape)
+                {
+                    Selection.Add(shape);
+                }
+            }
+        }
+
         public void SelectAllShapes()
         {
             Selection = new List<Shape>();
@@ -342,7 +355,7 @@ namespace Draw
             }
         }
 
-        public void UnselectAllShapes()
+          public void UnselectAllShapes()
         {
             Selection = new List<Shape>();
 

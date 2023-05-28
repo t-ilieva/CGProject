@@ -85,10 +85,6 @@
             this.nameTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.opacityComboBox = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.rotateRight90ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rotateLeft90ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rotate180ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.viewPort = new Draw.DoubleBufferedPanel();
@@ -226,8 +222,8 @@
             // 
             this.groupToolStripMenuItem1.Name = "groupToolStripMenuItem1";
             this.groupToolStripMenuItem1.Size = new System.Drawing.Size(312, 34);
-            this.groupToolStripMenuItem1.Text = "Group";
-            this.groupToolStripMenuItem1.Click += new System.EventHandler(this.GroupButton_Click);
+            this.groupToolStripMenuItem1.Text = "Groups";
+            this.groupToolStripMenuItem1.Click += new System.EventHandler(this.selectGroupsToolStripMenuItem1_Click);
             // 
             // allToolStripMenuItem
             // 
@@ -358,8 +354,7 @@
             this.toolStripSeparator3,
             this.nameTextBox,
             this.toolStripSeparator6,
-            this.opacityComboBox,
-            this.toolStripDropDownButton2});
+            this.opacityComboBox});
             this.speedMenu.Location = new System.Drawing.Point(0, 33);
             this.speedMenu.Name = "speedMenu";
             this.speedMenu.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
@@ -624,40 +619,6 @@
             this.opacityComboBox.Text = "Opacity";
             this.opacityComboBox.SelectedIndexChanged += new System.EventHandler(this.opacityComboBox_SelectedIndexChanged);
             // 
-            // toolStripDropDownButton2
-            // 
-            this.toolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.rotateRight90ToolStripMenuItem,
-            this.rotateLeft90ToolStripMenuItem,
-            this.rotate180ToolStripMenuItem});
-            this.toolStripDropDownButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton2.Image")));
-            this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
-            this.toolStripDropDownButton2.Size = new System.Drawing.Size(42, 29);
-            this.toolStripDropDownButton2.Text = "toolStripDropDownButton2";
-            // 
-            // rotateRight90ToolStripMenuItem
-            // 
-            this.rotateRight90ToolStripMenuItem.Name = "rotateRight90ToolStripMenuItem";
-            this.rotateRight90ToolStripMenuItem.Size = new System.Drawing.Size(244, 34);
-            this.rotateRight90ToolStripMenuItem.Text = "Rotate Right 90°";
-            this.rotateRight90ToolStripMenuItem.Click += new System.EventHandler(this.rotateRight90ToolStripMenuItem_Click);
-            // 
-            // rotateLeft90ToolStripMenuItem
-            // 
-            this.rotateLeft90ToolStripMenuItem.Name = "rotateLeft90ToolStripMenuItem";
-            this.rotateLeft90ToolStripMenuItem.Size = new System.Drawing.Size(244, 34);
-            this.rotateLeft90ToolStripMenuItem.Text = "Rotate Left 90°";
-            this.rotateLeft90ToolStripMenuItem.Click += new System.EventHandler(this.rotateLeft90ToolStripMenuItem_Click);
-            // 
-            // rotate180ToolStripMenuItem
-            // 
-            this.rotate180ToolStripMenuItem.Name = "rotate180ToolStripMenuItem";
-            this.rotate180ToolStripMenuItem.Size = new System.Drawing.Size(244, 34);
-            this.rotate180ToolStripMenuItem.Text = "Rotate 180°";
-            this.rotate180ToolStripMenuItem.Click += new System.EventHandler(this.rotate180ToolStripMenuItem_Click);
-            // 
             // trackBar1
             // 
             this.trackBar1.Location = new System.Drawing.Point(0, 86);
@@ -764,10 +725,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.ToolStripComboBox opacityComboBox;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton2;
-        private System.Windows.Forms.ToolStripMenuItem rotateRight90ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rotateLeft90ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rotate180ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
     }
