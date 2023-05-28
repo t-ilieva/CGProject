@@ -73,6 +73,8 @@
             this.DeleteButton = new System.Windows.Forms.ToolStripButton();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.viewPort = new Draw.DoubleBufferedPanel();
+            this.reverseSelectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reverseSelectionToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenu.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.speedMenu.SuspendLayout();
@@ -166,7 +168,8 @@
             this.ellipsesToolStripMenuItem,
             this.groupToolStripMenuItem1,
             this.allToolStripMenuItem,
-            this.unselectAllToolStripMenuItem});
+            this.unselectAllToolStripMenuItem,
+            this.reverseSelectionToolStripMenuItem});
             this.selectToolStripMenuItem.Name = "selectToolStripMenuItem";
             this.selectToolStripMenuItem.Size = new System.Drawing.Size(74, 29);
             this.selectToolStripMenuItem.Text = "Select";
@@ -376,7 +379,8 @@
             this.selectEllipsesToolStripMenuItem,
             this.selectGroupToolStripMenuItem,
             this.selectAllToolStripMenuItem,
-            this.unselectAllToolStripMenuItem1});
+            this.unselectAllToolStripMenuItem1,
+            this.reverseSelectionToolStripMenuItem1});
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
@@ -468,6 +472,24 @@
             this.viewPort.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ViewPortMouseMove);
             this.viewPort.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ViewPortMouseUp);
             // 
+            // reverseSelectionToolStripMenuItem
+            // 
+            this.reverseSelectionToolStripMenuItem.Name = "reverseSelectionToolStripMenuItem";
+            this.reverseSelectionToolStripMenuItem.Size = new System.Drawing.Size(303, 34);
+            this.reverseSelectionToolStripMenuItem.Text = "Reverse Selection";
+            this.reverseSelectionToolStripMenuItem.Click += new System.EventHandler(this.reverseSelectionToolStripMenuItem_Click);
+            this.reverseSelectionToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R )));
+
+            // 
+            // reverseSelectionToolStripMenuItem1
+            // 
+            this.reverseSelectionToolStripMenuItem1.Name = "reverseSelectionToolStripMenuItem1";
+            this.reverseSelectionToolStripMenuItem1.Size = new System.Drawing.Size(303, 34);
+            this.reverseSelectionToolStripMenuItem1.Text = "Reverse Selection";
+            this.reverseSelectionToolStripMenuItem1.Click += new System.EventHandler(this.reverseSelectionToolStripMenuItem_Click);
+            this.reverseSelectionToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
+
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -537,5 +559,7 @@
         private System.Windows.Forms.ToolStripMenuItem selectGroupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem unselectAllToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem groupToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem reverseSelectionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reverseSelectionToolStripMenuItem1;
     }
 }

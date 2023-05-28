@@ -218,6 +218,13 @@ namespace Draw
             viewPort.Invalidate();
         }
 
+        private void reverseSelectionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dialogProcessor.ReverseSelection();
+            statusBar.Items[0].Text = "Последно действие: Обръщане на селекция";
+            viewPort.Invalidate();
+        }
+
         //КОПИРАНЕ И ПОСТАВЯНЕ
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -246,6 +253,7 @@ namespace Draw
             statusBar.Items[0].Text = "Последно действие: Изтриване на селектираните фигури.";
             viewPort.Invalidate();
         }
+
     }
 }
 

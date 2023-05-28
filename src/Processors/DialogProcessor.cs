@@ -298,6 +298,22 @@ namespace Draw
 
         }
 
+        public void ReverseSelection()
+        {
+            List<Shape> reverseSelection = new List<Shape>();
+
+            foreach (var shape in ShapeList)
+            {
+                if (!Selection.Contains(shape))
+                {
+                    reverseSelection.Add(shape);
+                }
+            }
+
+            Selection.Clear();
+            Selection.AddRange(reverseSelection);
+        }
+
         //КОПИРАНЕ И ПОСТАВЯНЕ
 
         public void CopyShapes()
