@@ -64,5 +64,23 @@ namespace Draw
 				shape.Location = new PointF(shape.Location.X + x, shape.Location.Y + y);
 			}
         }
-    }
+
+        public override void GroupFillColor(Color color)
+        {
+            base.GroupFillColor(color);
+			foreach (var shape in SubShape)
+            {
+				shape.FillColor = color;
+            }
+        }
+
+		public override void GroupBorderColor(Color color)
+		{
+			base.GroupBorderColor(color);
+			foreach (var shape in SubShape)
+			{
+				shape.StrokeColor = color;
+			}
+		}
+	}
 }

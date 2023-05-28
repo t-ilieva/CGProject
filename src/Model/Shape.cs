@@ -110,5 +110,14 @@ namespace Draw
 			Location = new PointF(Location.X + x, Location.Y + y);
 		}
 
+		public virtual void GroupFillColor(Color color)
+        {
+
+        }
+
+		public virtual void GroupBorderColor(Color color)
+		{ 
+
+        }
     }
 }

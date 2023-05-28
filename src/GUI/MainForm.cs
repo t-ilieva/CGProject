@@ -138,11 +138,7 @@ namespace Draw
         {
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
-                foreach (Shape shape in dialogProcessor.Selection)
-                {
-                    shape.FillColor = colorDialog1.Color;
-
-                }
+                dialogProcessor.SelectFillColor(colorDialog1.Color);
                 statusBar.Items[0].Text = "Последно действие: Промяна на цвят на запълване на селектираните фигури.";
                 viewPort.Invalidate();
             }
@@ -152,10 +148,7 @@ namespace Draw
         {
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
-                foreach (Shape shape in dialogProcessor.Selection)
-                {
-                    shape.StrokeColor = colorDialog1.Color;
-                }
+                dialogProcessor.SelectBorderColor(colorDialog1.Color); 
                 statusBar.Items[0].Text = "Последно действие: Промяна на цвят на границата на селектираните фигури.";
                 viewPort.Invalidate();
             }
