@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Draw
@@ -67,7 +68,7 @@ namespace Draw
                         dialogProcessor.Selection.Add(select);
                     }
                 }
-                
+
 
                 statusBar.Items[0].Text = "Последно действие: Селекция на примитив";
                 dialogProcessor.IsDragging = true;
@@ -148,7 +149,7 @@ namespace Draw
         {
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
-                dialogProcessor.SelectBorderColor(colorDialog1.Color); 
+                dialogProcessor.SelectBorderColor(colorDialog1.Color);
                 statusBar.Items[0].Text = "Последно действие: Промяна на цвят на границата на селектираните фигури.";
                 viewPort.Invalidate();
             }
@@ -254,6 +255,40 @@ namespace Draw
             viewPort.Invalidate();
         }
 
+        private void shapeNameComboBox_DropDown(object sender, EventArgs e)
+        {
+            nameComboBox.Items.Clear();
+            foreach (var shape in dialogProcessor.ShapeList)
+            {
+                string name = shape.Name;
+
+                if (name != "")
+                {
+                    nameComboBox.Items.Add(name);
+                }
+            }
+        }
+
+        private void enterNameButton_Click(object sender, EventArgs e)
+        {
+       
+            foreach(var shape in dialogProcessor.Selection)
+            {
+                shape.Name = "";
+                string name = nameTextBox.Text;
+                List<string> names = dialogProcessor.GetNames();
+                if (names.Contains(name))
+                {
+                    int counter = names.Where(x => x.Equals(name)).Count();
+                    shape.Name = name + " (" + counter + ")";
+                }
+                else
+                {
+                    shape.Name = name;
+                }
+
+            }
+        }
     }
 }
 

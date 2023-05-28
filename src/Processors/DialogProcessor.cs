@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace Draw
 {
@@ -413,6 +414,17 @@ namespace Draw
         {
             Selection.Clear();
             ShapeList.Clear();
+        }
+
+        public List<string> GetNames()
+        {
+            List <string> names = new List<string>();
+            foreach (var shape in ShapeList)
+            {
+                names.Add(shape.Name.ToString());
+            }
+
+            return names;
         }
     }
 }
