@@ -226,6 +226,24 @@ namespace Draw
             }
         }
 
+        public void UngroupShape()
+        {
+            foreach (var shape in Selection)
+            {
+                if (shape is GroupShape)
+                {
+                    GroupShape groupShape = (GroupShape)shape;
+
+                    ShapeList.AddRange(groupShape.SubShape);
+                    ShapeList.Remove(shape);
+
+                    groupShape.SubShape.Clear();
+                }
+            }
+
+            Selection.Clear();
+        }
+
 
         //СЕЛЕКЦИЯ
 

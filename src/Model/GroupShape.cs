@@ -35,10 +35,10 @@ namespace Draw
 		{
 			foreach (var shape in SubShape)
 			{
-				if (shape.Contains(point)) 
+				if (shape.Contains(point))
 					return true;
 			}
-               
+
 			return false;
 		}
 
@@ -49,30 +49,30 @@ namespace Draw
 		{
 			base.DrawSelf(grfx);
 
-			foreach(var shape in SubShape)
-            {
+			foreach (var shape in SubShape)
+			{
 				shape.DrawSelf(grfx);
-            }
+			}
 		}
 
-        public override void GroupTranslateTo(float x, float y)
-        {
-            base.GroupTranslateTo(x, y);
+		public override void GroupTranslateTo(float x, float y)
+		{
+			base.GroupTranslateTo(x, y);
 
-			foreach(var shape in SubShape)
-            {
+			foreach (var shape in SubShape)
+			{
 				shape.Location = new PointF(shape.Location.X + x, shape.Location.Y + y);
 			}
-        }
+		}
 
-        public override void GroupFillColor(Color color)
-        {
-            base.GroupFillColor(color);
+		public override void GroupFillColor(Color color)
+		{
+			base.GroupFillColor(color);
 			foreach (var shape in SubShape)
-            {
+			{
 				shape.FillColor = color;
-            }
-        }
+			}
+		}
 
 		public override void GroupBorderColor(Color color)
 		{

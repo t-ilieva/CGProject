@@ -233,6 +233,23 @@ namespace Draw
             statusBar.Items[0].Text = "Последно действие: Премахване на селекция";
             viewPort.Invalidate();
         }
+
+        private void ungroupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dialogProcessor.UngroupShape();
+            statusBar.Items[0].Text = "Последно действие: Разгрупиране";
+            viewPort.Invalidate();
+        }
+
+        private void rectanglesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ellipsesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
