@@ -27,7 +27,14 @@ namespace Draw
 			get { return selection; }
 			set { selection = value; }
 		}
-		
+
+		private List<Shape> shapeListCopy = new List<Shape>();
+		public List<Shape> ShapeListCopy
+		{
+			get { return shapeListCopy; }
+			set { shapeListCopy = value; }
+		}
+
 		/// <summary>
 		/// Дали в момента диалога е в състояние на "влачене" на избрания елемент.
 		/// </summary>
@@ -46,18 +53,31 @@ namespace Draw
 			get { return lastLocation; }
 			set { lastLocation = value; }
 		}
-		
-		#endregion
-		
 
-		/// <summary>
-		/// Проверява дали дадена точка е в елемента.
-		/// Обхожда в ред обратен на визуализацията с цел намиране на
-		/// "най-горния" елемент т.е. този който виждаме под мишката.
-		/// </summary>
-		/// <param name="point">Указана точка</param>
-		/// <returns>Елемента на изображението, на който принадлежи дадената точка.</returns>
-		public Shape ContainsPoint(PointF point)
+        #endregion
+
+
+        /// <summary>
+        /// Проверява дали дадена точка е в елемента.
+        /// Обхожда в ред обратен на визуализацията с цел намиране на
+        /// "най-горния" елемент т.е. този който виждаме под мишката.
+        /// </summary>
+        /// <param name="point">Указана точка</param>
+        /// <returns>Елемента на изображението, на който принадлежи дадената точка.</returns>
+        /// 
+
+
+        public override void DrawShape(Graphics grfx, Shape item)
+        {
+            base.DrawShape(grfx, item);
+
+			foreach (var shape in Selection)
+            {
+				grfx.DrawRectangle(Pens.Black, shape.Rectangle.X - 3, shape.Rectangle.Y - 3, shape.Rectangle.Width + 6, shape.Rectangle.Height + 6);
+			}
+        }
+
+        public Shape ContainsPoint(PointF point)
 		{
 			for(int i = ShapeList.Count - 1; i >= 0; i--){
 				if (ShapeList[i].Contains(point)){
@@ -75,8 +95,18 @@ namespace Draw
 		/// <param name="p">Вектор на транслация.</param>
 		public void TranslateTo(PointF p)
 		{
-			foreach(var shape in Selection) {
-				shape.Location = new PointF(shape.Location.X + p.X - lastLocation.X, shape.Location.Y + p.Y - lastLocation.Y);
+			var x = p.X - lastLocation.X;
+			var y = p.Y - lastLocation.Y;
+
+			foreach (var shape in Selection) {
+				if(shape is GroupShape)
+                {
+					shape.GroupTranslateTo(x, y);
+                }
+                else
+                {
+					shape.Location = new PointF(shape.Location.X + x, shape.Location.Y + y);	
+				}
 			}	
 				
 			lastLocation = p;
@@ -97,6 +127,7 @@ namespace Draw
 
 			RectangleShape rect = new RectangleShape(new Rectangle(x, y, 100, 200));
 			rect.FillColor = Color.White;
+			rect.StrokeColor = Color.Black;
 
 			ShapeList.Add(rect);
 		}
@@ -109,7 +140,7 @@ namespace Draw
 
 			EllipseShape ellipse = new EllipseShape(new Rectangle(x, y, 100, 200));
 			ellipse.FillColor = Color.White;
-			ellipse.StrokeColor = Color.Green;
+			ellipse.StrokeColor = Color.Black;
 
 			ShapeList.Add(ellipse);
 		}
@@ -158,7 +189,12 @@ namespace Draw
         }
 
 
-		//СЕЛЕКЦИЯ
+        //СЕЛЕКЦИЯ
+
+        public override void Draw(Graphics grfx)
+        {
+            base.Draw(grfx);
+        }
         public void SelectRectangles()
         {
 			Selection = new List<Shape>();
@@ -193,6 +229,91 @@ namespace Draw
 			{
 				Selection.Add(shape);
 			}
+		}
+
+		//КОПИРАНЕ И ПОСТАВЯНЕ
+
+		public void CopyShapes()
+        {
+			shapeListCopy = new List<Shape>();
+
+			foreach (var shape in Selection)
+            {
+				shapeListCopy.Add(shape);
+            }
+        }
+
+		public void PasteShapes()
+        {
+			foreach (var shape in shapeListCopy)
+            {
+				int x = (int)shape.Location.X;
+				int y = (int)shape.Location.Y;
+				int width = (int)shape.Width;
+				int height = (int)shape.Height;
+
+				if (shape is GroupShape)
+                {
+					CopyGroup((GroupShape)shape);
+                }
+                else
+                {
+					switch (shape.GetType().Name.ToString())
+					{
+						case "RectangleShape":
+							RectangleShape rect = new RectangleShape(new Rectangle(x + 10, y + 10, width, height));
+							rect.FillColor = shape.FillColor;
+							rect.StrokeColor = shape.StrokeColor;
+							ShapeList.Add(rect);
+							break;
+
+						case "EllipseShape":
+							EllipseShape ellipse = new EllipseShape(new Rectangle(x + 10, y + 10, width, height));
+							ellipse.FillColor = shape.FillColor;
+							ellipse.StrokeColor = shape.StrokeColor;
+							ShapeList.Add(ellipse);
+							break;
+					}
+				}
+            }
+        }
+
+		public void CopyGroup(GroupShape groupShape)
+        {
+			List<Shape> newSubShape = new List<Shape>();
+			foreach (var shape in groupShape.SubShape)
+            {
+				int x = (int)shape.Location.X;
+				int y = (int)shape.Location.Y;
+				int width = (int)shape.Width;
+				int height = (int)shape.Height;
+
+				switch (shape.GetType().Name.ToString())
+				{
+					case "RectangleShape":
+						RectangleShape rect = new RectangleShape(new Rectangle(x + 10, y + 10, width, height));
+						rect.FillColor = shape.FillColor;
+						rect.StrokeColor = shape.StrokeColor;
+						newSubShape.Add(rect);
+						break;
+
+					case "EllipseShape":
+						EllipseShape ellipse = new EllipseShape(new Rectangle(x + 10, y + 10, width, height));
+						ellipse.FillColor = shape.FillColor;
+						ellipse.StrokeColor = shape.StrokeColor;
+						newSubShape.Add(ellipse);
+						break;
+				}
+			}
+
+			var gX = (int)groupShape.Location.X;
+			var gY = (int)groupShape.Location.Y;
+			var gH = (int)groupShape.Height;
+			var gW = (int)groupShape.Width;
+
+			GroupShape newGroupShape = new GroupShape(new Rectangle(gX + 10, gY + 10, gW, gH));
+			newGroupShape.SubShape = newSubShape;
+			ShapeList.Add(newGroupShape);
 		}
 
 		//ИЗТРИВАНЕ

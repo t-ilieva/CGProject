@@ -54,5 +54,15 @@ namespace Draw
 				shape.DrawSelf(grfx);
             }
 		}
-	}
+
+        public override void GroupTranslateTo(float x, float y)
+        {
+            base.GroupTranslateTo(x, y);
+
+			foreach(var shape in SubShape)
+            {
+				shape.Location = new PointF(shape.Location.X + x, shape.Location.Y + y);
+			}
+        }
+    }
 }

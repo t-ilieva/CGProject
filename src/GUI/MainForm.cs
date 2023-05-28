@@ -219,6 +219,20 @@ namespace Draw
             statusBar.Items[0].Text = "Последно действие: Селекция на всички фигури";
             viewPort.Invalidate();
         }
+
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dialogProcessor.CopyShapes();
+            statusBar.Items[0].Text = "Последно действие: Копиране на селектирани фигури.";
+            viewPort.Invalidate();
+        }
+
+        private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dialogProcessor.PasteShapes();
+            statusBar.Items[0].Text = "Последно действие: Поставяне на копираните фигури.";
+            viewPort.Invalidate();
+        }
     }
 }
 

@@ -94,15 +94,21 @@ namespace Draw
 		{
 			return Rectangle.Contains(point.X, point.Y);
 		}
-		
-		/// <summary>
-		/// Визуализира елемента.
-		/// </summary>
-		/// <param name="grfx">Къде да бъде визуализиран елемента.</param>
-		public virtual void DrawSelf(Graphics grfx)
+
+        /// <summary>
+        /// Визуализира елемента.
+        /// </summary>
+        /// <param name="grfx">Къде да бъде визуализиран елемента.</param>
+        public virtual void DrawSelf(Graphics grfx)
 		{
 			// shape.Rectangle.Inflate(shape.BorderWidth, shape.BorderWidth);
 		}
-		
-	}
+
+		//GROUPS
+		public virtual void GroupTranslateTo(float x, float y)
+		{
+			Location = new PointF(Location.X + x, Location.Y + y);
+		}
+
+    }
 }
