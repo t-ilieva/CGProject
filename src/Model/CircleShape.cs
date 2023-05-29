@@ -32,13 +32,24 @@ namespace Draw
 		/// </summary>
 		public override bool Contains(PointF point)
 		{
-			if (base.Contains(point))
-				// Проверка дали е в обекта само, ако точката е в обхващащия правоъгълник.
-				// В случая на правоъгълник - директно връщаме true
-				return true;
-			else
-				// Ако не е в обхващащия правоъгълник, то неможе да е в обекта и => false
-				return false;
+			{
+				var h = base.Location.X + (base.Width / 2);
+				var k = base.Location.Y + (base.Height / 2);
+				var r = base.Width / 2;
+				var x = point.X;
+				var y = point.Y;
+
+				var x1 = Math.Pow((x - h), 2);
+				var y1 = Math.Pow((y - k), 2);
+				var r2 = Math.Pow(r, 2);
+
+				var result = x1 + y1;
+
+				if (base.Contains(point) && result < r2)
+					return true;
+				else
+					return false;
+			}
 		}
 
 		/// <summary>
