@@ -186,6 +186,20 @@ namespace Draw
             ShapeList.Add(ellipse);
         }
 
+        public void AddRandomCircle()
+        {
+            Random rnd = new Random();
+            int x = rnd.Next(100, 1000);
+            int y = rnd.Next(100, 600);
+
+            CircleShape circle = new CircleShape(new Rectangle(x, y, 100, 100));
+            circle.FillColor = Color.White;
+            circle.StrokeColor = Color.Black;
+            circle.Opacity = 255;
+
+            ShapeList.Add(circle);
+        }
+
         //МОДИФИКАЦИИ
 
         public void SelectFillColor(Color color)
@@ -293,9 +307,10 @@ namespace Draw
 
         internal void GroupRemoveShapes(String shapeType)
         {
-            List<Shape> newSelection = new List<Shape>();
+            List<Shape> newSelection = new List<Shape>(Selection);
+            Selection.Clear();
 
-            foreach (var shape in Selection)
+            foreach (var shape in newSelection)
             {
                 if (shape is GroupShape)
                 {
@@ -318,12 +333,9 @@ namespace Draw
                     GroupSelectedShapes(newSubShape);
                     ShapeList.Remove(shape);
                     ShapeList.AddRange(removed);
-                    newSelection.AddRange(removed);
+                    Selection.AddRange(removed);
                 }
             }
-
-            Selection.Clear();
-            Selection = newSelection;
         }
 
         public void UngroupShape()
@@ -389,6 +401,19 @@ namespace Draw
             foreach (var shape in ShapeList)
             {
                 if (shape is EllipseShape)
+                {
+                    Selection.Add(shape);
+                }
+            }
+        }
+
+        public void SelectCircles()
+        {
+            Selection = new List<Shape>();
+
+            foreach (var shape in ShapeList)
+            {
+                if (shape is CircleShape)
                 {
                     Selection.Add(shape);
                 }
@@ -492,6 +517,14 @@ namespace Draw
                             square.Opacity = shape.Opacity;
                             ShapeList.Add(square);
                             break;
+
+                        case "CircleShape":
+                            CircleShape circle = new CircleShape(new Rectangle(x + 10, y + 10, width, height));
+                            circle.FillColor = shape.FillColor;
+                            circle.StrokeColor = shape.StrokeColor;
+                            circle.Opacity = shape.Opacity;
+                            ShapeList.Add(circle);
+                            break;
                     }
                 }
             }
@@ -531,6 +564,14 @@ namespace Draw
                         square.StrokeColor = shape.StrokeColor;
                         square.Opacity = shape.Opacity;
                         newSubShape.Add(square);
+                        break;
+
+                    case "CircleShape":
+                        CircleShape circle = new CircleShape(new Rectangle(x + 10, y + 10, width, height));
+                        circle.FillColor = shape.FillColor;
+                        circle.StrokeColor = shape.StrokeColor;
+                        circle.Opacity = shape.Opacity;
+                        newSubShape.Add(circle);
                         break;
                 }
             }

@@ -9,18 +9,18 @@ namespace Draw
 	/// 
 
 	[Serializable]
-	public class RectangleShape : Shape
+	public class CircleShape : Shape
 	{
 		#region Constructor
-		
-		public RectangleShape(RectangleF rect) : base(rect)
+
+		public CircleShape(RectangleF rect) : base(rect)
 		{
 		}
-		
-		public RectangleShape(RectangleShape rectangle) : base(rectangle)
+
+		public CircleShape(RectangleShape rectangle) : base(rectangle)
 		{
 		}
-		
+
 		#endregion
 
 		/// <summary>
@@ -40,17 +40,16 @@ namespace Draw
 				// Ако не е в обхващащия правоъгълник, то неможе да е в обекта и => false
 				return false;
 		}
-		
+
 		/// <summary>
 		/// Частта, визуализираща конкретния примитив.
 		/// </summary>
 		public override void DrawSelf(Graphics grfx)
 		{
-
 			base.DrawSelf(grfx);
 
-			grfx.FillRectangle(new SolidBrush(Color.FromArgb(Opacity, FillColor)),Rectangle.X, Rectangle.Y, Rectangle.Width, Rectangle.Height);
-			grfx.DrawRectangle(new Pen(StrokeColor, BorderWidth),Rectangle.X, Rectangle.Y, Rectangle.Width, Rectangle.Height);
+			grfx.FillEllipse(new SolidBrush(Color.FromArgb(Opacity, FillColor)), Rectangle.X, Rectangle.Y, Rectangle.Width, Rectangle.Height);
+			grfx.DrawEllipse(new Pen(StrokeColor, BorderWidth), Rectangle.X, Rectangle.Y, Rectangle.Width, Rectangle.Height);
 			grfx.ResetTransform();
 		}
 	}

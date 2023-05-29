@@ -133,6 +133,13 @@ namespace Draw
             viewPort.Invalidate();
         }
 
+        void DrawCircleSpeedButtonClick(object sender, EventArgs e)
+        {
+            dialogProcessor.AddRandomCircle();
+            statusBar.Items[0].Text = "Последно действие: Рисуване на кръг";
+            viewPort.Invalidate();
+        }
+
         void SelectFillColorButton_Click(object sender, EventArgs e)
         {
             if (colorDialog1.ShowDialog() == DialogResult.OK)
@@ -188,6 +195,13 @@ namespace Draw
             viewPort.Invalidate();
         }
 
+        private void removeCirclesFromGroupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dialogProcessor.GroupRemoveShapes("CircleShape");
+            statusBar.Items[0].Text = "Последно действие: Премахване на кръгове от селектираните групи";
+            viewPort.Invalidate();
+        }
+
 
         //СЕЛЕКЦИЯ
         private void toolStripDropDownButton1_Click(object sender, EventArgs e)
@@ -218,6 +232,13 @@ namespace Draw
         {
             dialogProcessor.SelectEllipses();
             statusBar.Items[0].Text = "Последно действие: Селекция на всички елипси";
+            viewPort.Invalidate();
+        }
+
+        private void selectCirclesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dialogProcessor.SelectCircles();
+            statusBar.Items[0].Text = "Последно действие: Селекция на всички кръгове";
             viewPort.Invalidate();
         }
 
