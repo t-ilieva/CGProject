@@ -499,6 +499,7 @@ namespace Draw
                             rect.FillColor = shape.FillColor;
                             rect.StrokeColor = shape.StrokeColor;
                             rect.Opacity = shape.Opacity;
+                            rect.BorderWidth = shape.BorderWidth;
                             ShapeList.Add(rect);
                             break;
 
@@ -507,6 +508,7 @@ namespace Draw
                             ellipse.FillColor = shape.FillColor;
                             ellipse.StrokeColor = shape.StrokeColor;
                             ellipse.Opacity = shape.Opacity;
+                            ellipse.BorderWidth = shape.BorderWidth;
                             ShapeList.Add(ellipse);
                             break;
 
@@ -515,6 +517,7 @@ namespace Draw
                             square.FillColor = shape.FillColor;
                             square.StrokeColor = shape.StrokeColor;
                             square.Opacity = shape.Opacity;
+                            square.BorderWidth = shape.BorderWidth;
                             ShapeList.Add(square);
                             break;
 
@@ -523,6 +526,7 @@ namespace Draw
                             circle.FillColor = shape.FillColor;
                             circle.StrokeColor = shape.StrokeColor;
                             circle.Opacity = shape.Opacity;
+                            circle.BorderWidth = shape.BorderWidth;
                             ShapeList.Add(circle);
                             break;
                     }
@@ -547,6 +551,7 @@ namespace Draw
                         rect.FillColor = shape.FillColor;
                         rect.StrokeColor = shape.StrokeColor;
                         rect.Opacity = shape.Opacity;
+                        rect.BorderWidth = shape.BorderWidth;
                         newSubShape.Add(rect);
                         break;
 
@@ -555,6 +560,7 @@ namespace Draw
                         ellipse.FillColor = shape.FillColor;
                         ellipse.StrokeColor = shape.StrokeColor;
                         ellipse.Opacity = shape.Opacity;
+                        ellipse.BorderWidth = shape.BorderWidth;
                         newSubShape.Add(ellipse);
                         break;
 
@@ -563,6 +569,7 @@ namespace Draw
                         square.FillColor = shape.FillColor;
                         square.StrokeColor = shape.StrokeColor;
                         square.Opacity = shape.Opacity;
+                        square.BorderWidth = shape.BorderWidth;
                         newSubShape.Add(square);
                         break;
 
@@ -571,6 +578,7 @@ namespace Draw
                         circle.FillColor = shape.FillColor;
                         circle.StrokeColor = shape.StrokeColor;
                         circle.Opacity = shape.Opacity;
+                        circle.BorderWidth = shape.BorderWidth;
                         newSubShape.Add(circle);
                         break;
                 }
