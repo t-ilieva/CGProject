@@ -121,7 +121,9 @@ namespace Draw
 
         void DrawSquareSpeedButtonClick(object sender, EventArgs e)
         {
-
+            dialogProcessor.AddRandomSquare();
+            statusBar.Items[0].Text = "Последно действие: Рисуване на квадрат";
+            viewPort.Invalidate();
         }
 
         void DrawEllipseSpeedButtonClick(object sender, EventArgs e)
@@ -179,6 +181,13 @@ namespace Draw
             viewPort.Invalidate();
         }
 
+        private void removeSquaresFromGroupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dialogProcessor.GroupRemoveShapes("SquareShape");
+            statusBar.Items[0].Text = "Последно действие: Премахване на квадрати от селектираните групи";
+            viewPort.Invalidate();
+        }
+
 
         //СЕЛЕКЦИЯ
         private void toolStripDropDownButton1_Click(object sender, EventArgs e)
@@ -195,6 +204,13 @@ namespace Draw
         {
             dialogProcessor.SelectRectangles();
             statusBar.Items[0].Text = "Последно действие: Селекция на всички правоъгълници";
+            viewPort.Invalidate();
+        }
+
+        private void selectSquaresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dialogProcessor.SelectSquares();
+            statusBar.Items[0].Text = "Последно действие: Селекция на всички квадрати";
             viewPort.Invalidate();
         }
 

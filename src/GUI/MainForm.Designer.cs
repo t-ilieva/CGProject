@@ -87,6 +87,9 @@
             this.opacityComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.squaresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.squaresToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.selectSquaresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewPort = new Draw.DoubleBufferedPanel();
             this.mainMenu.SuspendLayout();
             this.statusBar.SuspendLayout();
@@ -195,6 +198,7 @@
             // 
             this.selectToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.rectanglesToolStripMenuItem,
+            this.squaresToolStripMenuItem1,
             this.ellipsesToolStripMenuItem,
             this.groupToolStripMenuItem1,
             this.allToolStripMenuItem,
@@ -280,6 +284,7 @@
             // 
             this.removeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.rectanglesToolStripMenuItem1,
+            this.squaresToolStripMenuItem,
             this.ellipsesToolStripMenuItem1});
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
             this.removeToolStripMenuItem.Size = new System.Drawing.Size(282, 34);
@@ -424,6 +429,7 @@
             this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.selectRectanglesToolStripMenuItem,
+            this.selectSquaresToolStripMenuItem,
             this.selectEllipsesToolStripMenuItem,
             this.selectGroupToolStripMenuItem,
             this.selectAllToolStripMenuItem,
@@ -628,6 +634,27 @@
             this.trackBar1.Tag = "Border Width";
             this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
+            // squaresToolStripMenuItem
+            // 
+            this.squaresToolStripMenuItem.Name = "squaresToolStripMenuItem";
+            this.squaresToolStripMenuItem.Size = new System.Drawing.Size(198, 34);
+            this.squaresToolStripMenuItem.Text = "Squares";
+            this.squaresToolStripMenuItem.Click += new System.EventHandler(this.removeSquaresFromGroupToolStripMenuItem_Click);
+            // 
+            // squaresToolStripMenuItem1
+            // 
+            this.squaresToolStripMenuItem1.Name = "squaresToolStripMenuItem1";
+            this.squaresToolStripMenuItem1.Size = new System.Drawing.Size(312, 34);
+            this.squaresToolStripMenuItem1.Text = "Squares";
+            this.squaresToolStripMenuItem1.Click += new System.EventHandler(this.selectSquaresToolStripMenuItem_Click);
+            // 
+            // selectSquaresToolStripMenuItem
+            // 
+            this.selectSquaresToolStripMenuItem.Name = "selectSquaresToolStripMenuItem";
+            this.selectSquaresToolStripMenuItem.Size = new System.Drawing.Size(312, 34);
+            this.selectSquaresToolStripMenuItem.Text = "Select Squares";
+            this.selectSquaresToolStripMenuItem.Click += new System.EventHandler(this.selectSquaresToolStripMenuItem_Click);
+            // 
             // viewPort
             // 
             this.viewPort.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -727,5 +754,8 @@
         private System.Windows.Forms.ToolStripComboBox opacityComboBox;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem squaresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem squaresToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem selectSquaresToolStripMenuItem;
     }
 }

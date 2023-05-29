@@ -158,6 +158,20 @@ namespace Draw
             ShapeList.Add(rect);
         }
 
+        public void AddRandomSquare()
+        {
+            Random rnd = new Random();
+            int x = rnd.Next(100, 1000);
+            int y = rnd.Next(100, 600);
+
+            SquareShape square = new SquareShape(new Rectangle(x, y, 100, 100));
+            square.FillColor = Color.White;
+            square.StrokeColor = Color.Black;
+            square.Opacity = 255;
+
+            ShapeList.Add(square);
+        }
+
         public void AddRandomElipse()
         {
             Random rnd = new Random();
@@ -355,6 +369,19 @@ namespace Draw
             }
         }
 
+        public void SelectSquares()
+        {
+            Selection = new List<Shape>();
+
+            foreach (var shape in ShapeList)
+            {
+                if (shape is SquareShape)
+                {
+                    Selection.Add(shape);
+                }
+            }
+        }
+
         public void SelectEllipses()
         {
             Selection = new List<Shape>();
@@ -457,6 +484,14 @@ namespace Draw
                             ellipse.Opacity = shape.Opacity;
                             ShapeList.Add(ellipse);
                             break;
+
+                        case "SquareShape":
+                            SquareShape square = new SquareShape(new Rectangle(x + 10, y + 10, width, height));
+                            square.FillColor = shape.FillColor;
+                            square.StrokeColor = shape.StrokeColor;
+                            square.Opacity = shape.Opacity;
+                            ShapeList.Add(square);
+                            break;
                     }
                 }
             }
@@ -488,6 +523,14 @@ namespace Draw
                         ellipse.StrokeColor = shape.StrokeColor;
                         ellipse.Opacity = shape.Opacity;
                         newSubShape.Add(ellipse);
+                        break;
+
+                    case "SquareShape":
+                        SquareShape square = new SquareShape(new Rectangle(x + 10, y + 10, width, height));
+                        square.FillColor = shape.FillColor;
+                        square.StrokeColor = shape.StrokeColor;
+                        square.Opacity = shape.Opacity;
+                        newSubShape.Add(square);
                         break;
                 }
             }
