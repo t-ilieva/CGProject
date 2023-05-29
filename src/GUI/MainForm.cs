@@ -142,8 +142,15 @@ namespace Draw
 
         void DrawTriangleSpeedButtonClick(object sender, EventArgs e)
         {
-            dialogProcessor.AddRandomTriangle();
-            statusBar.Items[0].Text = "Последно действие: Рисуване на триъгълник";
+            dialogProcessor.AddRandomEquilateralTriangle();
+            statusBar.Items[0].Text = "Последно действие: Рисуване на равностранен триъгълник";
+            viewPort.Invalidate();
+        }
+
+        void DrawLeftAngleTriangleSpeedButtonClick(object sender, EventArgs e)
+        {
+            dialogProcessor.AddRandomLeftAngleTriangle();
+            statusBar.Items[0].Text = "Последно действие: Рисуване на триъгълник(с ляв ъгъл)";
             viewPort.Invalidate();
         }
 
@@ -209,6 +216,27 @@ namespace Draw
             viewPort.Invalidate();
         }
 
+        private void removeTrianglesFromGroupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dialogProcessor.GroupRemoveShapes("Triangles");
+            statusBar.Items[0].Text = "Последно действие: Премахване на триъгълници от селектираните групи";
+            viewPort.Invalidate();
+        }
+
+        private void removeEquilateralTrianglesFromGroupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dialogProcessor.GroupRemoveShapes("TriangleShape");
+            statusBar.Items[0].Text = "Последно действие: Премахване на равностранни триъгълници от селектираните групи";
+            viewPort.Invalidate();
+        }
+
+        private void removeLeftAngleTrianglesFromGroupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dialogProcessor.GroupRemoveShapes("TriangleShape2");
+            statusBar.Items[0].Text = "Последно действие: Премахване на триъгълници(ляв ъгъл) от селектираните групи";
+            viewPort.Invalidate();
+        }
+
 
         //СЕЛЕКЦИЯ
         private void toolStripDropDownButton1_Click(object sender, EventArgs e)
@@ -246,6 +274,27 @@ namespace Draw
         {
             dialogProcessor.SelectCircles();
             statusBar.Items[0].Text = "Последно действие: Селекция на всички кръгове";
+            viewPort.Invalidate();
+        }
+
+        private void selectTrianglesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dialogProcessor.SelectAllTriangles();
+            statusBar.Items[0].Text = "Последно действие: Селекция на всички триъгълници";
+            viewPort.Invalidate();
+        }
+
+        private void selectEquilateralTrianglesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dialogProcessor.SelectEquilateralTriangles();
+            statusBar.Items[0].Text = "Последно действие: Селекция на всички равностранни триъгълници";
+            viewPort.Invalidate();
+        }
+
+        private void selectLeftAngleTrianglesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dialogProcessor.SelectLeftAngleTriangles();
+            statusBar.Items[0].Text = "Последно действие: Селекция на всички триъгълници(ляв ъгъл)";
             viewPort.Invalidate();
         }
 

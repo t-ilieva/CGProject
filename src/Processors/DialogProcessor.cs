@@ -200,13 +200,27 @@ namespace Draw
             ShapeList.Add(circle);
         }
 
-        public void AddRandomTriangle()
+        public void AddRandomEquilateralTriangle()
         {
             Random rnd = new Random();
             int x = rnd.Next(100, 1000);
             int y = rnd.Next(100, 600);
 
             TriangleShape triangle = new TriangleShape(new Rectangle(x, y, 100, 100));
+            triangle.FillColor = Color.White;
+            triangle.StrokeColor = Color.Black;
+            triangle.Opacity = 255;
+
+            ShapeList.Add(triangle);
+        }
+
+        public void AddRandomLeftAngleTriangle()
+        {
+            Random rnd = new Random();
+            int x = rnd.Next(100, 1000);
+            int y = rnd.Next(100, 600);
+
+            TriangleShape2 triangle = new TriangleShape2(new Rectangle(x, y, 100, 100));
             triangle.FillColor = Color.White;
             triangle.StrokeColor = Color.Black;
             triangle.Opacity = 255;
@@ -338,6 +352,17 @@ namespace Draw
                         {
                             removed.Add(subShape);
                         }
+                        else if (shapeType.Equals("Triangles"))
+                        {
+                            if (subShape is TriangleShape || subShape is TriangleShape2)
+                            {
+                                removed.Add(subShape);
+                            }
+                            else
+                            {
+                                newSubShape.Add(subShape);
+                            }
+                        }
                         else
                         {
                             newSubShape.Add(subShape);
@@ -428,6 +453,45 @@ namespace Draw
             foreach (var shape in ShapeList)
             {
                 if (shape is CircleShape)
+                {
+                    Selection.Add(shape);
+                }
+            }
+        }
+
+        public void SelectEquilateralTriangles()
+        {
+            Selection = new List<Shape>();
+
+            foreach (var shape in ShapeList)
+            {
+                if (shape is TriangleShape)
+                {
+                    Selection.Add(shape);
+                }
+            }
+        }
+
+        public void SelectLeftAngleTriangles()
+        {
+            Selection = new List<Shape>();
+
+            foreach (var shape in ShapeList)
+            {
+                if (shape is TriangleShape2)
+                {
+                    Selection.Add(shape);
+                }
+            }
+        }
+
+        public void SelectAllTriangles()
+        {
+            Selection = new List<Shape>();
+
+            foreach (var shape in ShapeList)
+            {
+                if (shape is TriangleShape || shape is TriangleShape2)
                 {
                     Selection.Add(shape);
                 }
@@ -543,6 +607,24 @@ namespace Draw
                             circle.BorderWidth = shape.BorderWidth;
                             ShapeList.Add(circle);
                             break;
+
+                        case "TriangleShape":
+                            TriangleShape triangle = new TriangleShape(new Rectangle(x + 10, y + 10, width, height));
+                            triangle.FillColor = shape.FillColor;
+                            triangle.StrokeColor = shape.StrokeColor;
+                            triangle.Opacity = shape.Opacity;
+                            triangle.BorderWidth = shape.BorderWidth;
+                            ShapeList.Add(triangle);
+                            break;
+
+                        case "TriangleShape2":
+                            TriangleShape2 triangle2 = new TriangleShape2(new Rectangle(x + 10, y + 10, width, height));
+                            triangle2.FillColor = shape.FillColor;
+                            triangle2.StrokeColor = shape.StrokeColor;
+                            triangle2.Opacity = shape.Opacity;
+                            triangle2.BorderWidth = shape.BorderWidth;
+                            ShapeList.Add(triangle2);
+                            break;
                     }
                 }
             }
@@ -594,6 +676,24 @@ namespace Draw
                         circle.Opacity = shape.Opacity;
                         circle.BorderWidth = shape.BorderWidth;
                         newSubShape.Add(circle);
+                        break;
+
+                    case "TriangleShape":
+                        TriangleShape triangle = new TriangleShape(new Rectangle(x + 10, y + 10, width, height));
+                        triangle.FillColor = shape.FillColor;
+                        triangle.StrokeColor = shape.StrokeColor;
+                        triangle.Opacity = shape.Opacity;
+                        triangle.BorderWidth = shape.BorderWidth;
+                        newSubShape.Add(triangle);
+                        break;
+
+                    case "TriangleShap2e":
+                        TriangleShape2 triangle2 = new TriangleShape2(new Rectangle(x + 10, y + 10, width, height));
+                        triangle2.FillColor = shape.FillColor;
+                        triangle2.StrokeColor = shape.StrokeColor;
+                        triangle2.Opacity = shape.Opacity;
+                        triangle2.BorderWidth = shape.BorderWidth;
+                        newSubShape.Add(triangle2);
                         break;
                 }
             }
