@@ -200,6 +200,20 @@ namespace Draw
             ShapeList.Add(circle);
         }
 
+        public void AddRandomTriangle()
+        {
+            Random rnd = new Random();
+            int x = rnd.Next(100, 1000);
+            int y = rnd.Next(100, 600);
+
+            TriangleShape triangle = new TriangleShape(new Rectangle(x, y, 100, 100));
+            triangle.FillColor = Color.White;
+            triangle.StrokeColor = Color.Black;
+            triangle.Opacity = 255;
+
+            ShapeList.Add(triangle);
+        }
+
         //МОДИФИКАЦИИ
 
         public void SelectFillColor(Color color)

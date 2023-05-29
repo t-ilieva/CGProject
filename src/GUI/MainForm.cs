@@ -140,6 +140,13 @@ namespace Draw
             viewPort.Invalidate();
         }
 
+        void DrawTriangleSpeedButtonClick(object sender, EventArgs e)
+        {
+            dialogProcessor.AddRandomTriangle();
+            statusBar.Items[0].Text = "Последно действие: Рисуване на триъгълник";
+            viewPort.Invalidate();
+        }
+
         void SelectFillColorButton_Click(object sender, EventArgs e)
         {
             if (colorDialog1.ShowDialog() == DialogResult.OK)
