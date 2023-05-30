@@ -84,11 +84,14 @@
             this.selectSquaresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.selectEllipsesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.selectCirclesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.selectTrianglesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.allToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.equilateralToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.leftAngleToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.selectGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.unselectAllToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.reverseSelectionToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.selectTrianglesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FillColorButton = new System.Windows.Forms.ToolStripButton();
             this.BorderColorButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -105,9 +108,6 @@
             this.opacityComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.allToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.equilateralToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.leftAngleToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.viewPort = new Draw.DoubleBufferedPanel();
             this.mainMenu.SuspendLayout();
             this.statusBar.SuspendLayout();
@@ -361,28 +361,28 @@
             // rectanglesToolStripMenuItem1
             // 
             this.rectanglesToolStripMenuItem1.Name = "rectanglesToolStripMenuItem1";
-            this.rectanglesToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
+            this.rectanglesToolStripMenuItem1.Size = new System.Drawing.Size(198, 34);
             this.rectanglesToolStripMenuItem1.Text = "Rectangles";
             this.rectanglesToolStripMenuItem1.Click += new System.EventHandler(this.removeRectanglesFromGroupToolStripMenuItem_Click);
             // 
             // squaresToolStripMenuItem
             // 
             this.squaresToolStripMenuItem.Name = "squaresToolStripMenuItem";
-            this.squaresToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.squaresToolStripMenuItem.Size = new System.Drawing.Size(198, 34);
             this.squaresToolStripMenuItem.Text = "Squares";
             this.squaresToolStripMenuItem.Click += new System.EventHandler(this.removeSquaresFromGroupToolStripMenuItem_Click);
             // 
             // ellipsesToolStripMenuItem1
             // 
             this.ellipsesToolStripMenuItem1.Name = "ellipsesToolStripMenuItem1";
-            this.ellipsesToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
+            this.ellipsesToolStripMenuItem1.Size = new System.Drawing.Size(198, 34);
             this.ellipsesToolStripMenuItem1.Text = "Ellipses";
             this.ellipsesToolStripMenuItem1.Click += new System.EventHandler(this.removeEllipsesFromGroupToolStripMenuItem_Click);
             // 
             // circlesToolStripMenuItem1
             // 
             this.circlesToolStripMenuItem1.Name = "circlesToolStripMenuItem1";
-            this.circlesToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
+            this.circlesToolStripMenuItem1.Size = new System.Drawing.Size(198, 34);
             this.circlesToolStripMenuItem1.Text = "Circles";
             this.circlesToolStripMenuItem1.Click += new System.EventHandler(this.removeCirclesFromGroupToolStripMenuItem_Click);
             // 
@@ -393,28 +393,28 @@
             this.equilateralToolStripMenuItem1,
             this.leftAngleToolStripMenuItem1});
             this.trianglesToolStripMenuItem1.Name = "trianglesToolStripMenuItem1";
-            this.trianglesToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
+            this.trianglesToolStripMenuItem1.Size = new System.Drawing.Size(198, 34);
             this.trianglesToolStripMenuItem1.Text = "Triangles";
             this.trianglesToolStripMenuItem1.Click += new System.EventHandler(this.removeTrianglesFromGroupToolStripMenuItem_Click);
             // 
             // allToolStripMenuItem2
             // 
             this.allToolStripMenuItem2.Name = "allToolStripMenuItem2";
-            this.allToolStripMenuItem2.Size = new System.Drawing.Size(270, 34);
+            this.allToolStripMenuItem2.Size = new System.Drawing.Size(195, 34);
             this.allToolStripMenuItem2.Text = "All";
             this.allToolStripMenuItem2.Click += new System.EventHandler(this.removeTrianglesFromGroupToolStripMenuItem_Click);
             // 
             // equilateralToolStripMenuItem1
             // 
             this.equilateralToolStripMenuItem1.Name = "equilateralToolStripMenuItem1";
-            this.equilateralToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
+            this.equilateralToolStripMenuItem1.Size = new System.Drawing.Size(195, 34);
             this.equilateralToolStripMenuItem1.Text = "Equilateral";
             this.equilateralToolStripMenuItem1.Click += new System.EventHandler(this.removeEquilateralTrianglesFromGroupToolStripMenuItem_Click);
             // 
             // leftAngleToolStripMenuItem1
             // 
             this.leftAngleToolStripMenuItem1.Name = "leftAngleToolStripMenuItem1";
-            this.leftAngleToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
+            this.leftAngleToolStripMenuItem1.Size = new System.Drawing.Size(195, 34);
             this.leftAngleToolStripMenuItem1.Text = "Left Angle";
             this.leftAngleToolStripMenuItem1.Click += new System.EventHandler(this.removeLeftAngleTrianglesFromGroupToolStripMenuItem_Click);
             // 
@@ -620,11 +620,44 @@
             this.selectCirclesToolStripMenuItem.Text = "Select Circles";
             this.selectCirclesToolStripMenuItem.Click += new System.EventHandler(this.selectCirclesToolStripMenuItem_Click);
             // 
+            // selectTrianglesToolStripMenuItem
+            // 
+            this.selectTrianglesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.allToolStripMenuItem3,
+            this.equilateralToolStripMenuItem2,
+            this.leftAngleToolStripMenuItem2});
+            this.selectTrianglesToolStripMenuItem.Name = "selectTrianglesToolStripMenuItem";
+            this.selectTrianglesToolStripMenuItem.Size = new System.Drawing.Size(312, 34);
+            this.selectTrianglesToolStripMenuItem.Text = "Select Triangles";
+            this.selectTrianglesToolStripMenuItem.Click += new System.EventHandler(this.selectTrianglesToolStripMenuItem_Click);
+            // 
+            // allToolStripMenuItem3
+            // 
+            this.allToolStripMenuItem3.Name = "allToolStripMenuItem3";
+            this.allToolStripMenuItem3.Size = new System.Drawing.Size(195, 34);
+            this.allToolStripMenuItem3.Text = "All";
+            this.allToolStripMenuItem3.Click += new System.EventHandler(this.selectTrianglesToolStripMenuItem_Click);
+            // 
+            // equilateralToolStripMenuItem2
+            // 
+            this.equilateralToolStripMenuItem2.Name = "equilateralToolStripMenuItem2";
+            this.equilateralToolStripMenuItem2.Size = new System.Drawing.Size(195, 34);
+            this.equilateralToolStripMenuItem2.Text = "Equilateral";
+            this.equilateralToolStripMenuItem2.Click += new System.EventHandler(this.selectEquilateralTrianglesToolStripMenuItem_Click);
+            // 
+            // leftAngleToolStripMenuItem2
+            // 
+            this.leftAngleToolStripMenuItem2.Name = "leftAngleToolStripMenuItem2";
+            this.leftAngleToolStripMenuItem2.Size = new System.Drawing.Size(195, 34);
+            this.leftAngleToolStripMenuItem2.Text = "Left Angle";
+            this.leftAngleToolStripMenuItem2.Click += new System.EventHandler(this.selectLeftAngleTrianglesToolStripMenuItem_Click);
+            // 
             // selectGroupToolStripMenuItem
             // 
             this.selectGroupToolStripMenuItem.Name = "selectGroupToolStripMenuItem";
             this.selectGroupToolStripMenuItem.Size = new System.Drawing.Size(312, 34);
             this.selectGroupToolStripMenuItem.Text = "Select Groups";
+            this.selectGroupToolStripMenuItem.Click += new System.EventHandler(this.selectGroupsToolStripMenuItem1_Click);
             // 
             // selectAllToolStripMenuItem
             // 
@@ -649,17 +682,6 @@
             this.reverseSelectionToolStripMenuItem1.Size = new System.Drawing.Size(312, 34);
             this.reverseSelectionToolStripMenuItem1.Text = "Reverse Selection";
             this.reverseSelectionToolStripMenuItem1.Click += new System.EventHandler(this.reverseSelectionToolStripMenuItem_Click);
-            // 
-            // selectTrianglesToolStripMenuItem
-            // 
-            this.selectTrianglesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.allToolStripMenuItem3,
-            this.equilateralToolStripMenuItem2,
-            this.leftAngleToolStripMenuItem2});
-            this.selectTrianglesToolStripMenuItem.Name = "selectTrianglesToolStripMenuItem";
-            this.selectTrianglesToolStripMenuItem.Size = new System.Drawing.Size(312, 34);
-            this.selectTrianglesToolStripMenuItem.Text = "Select Triangles";
-            this.selectTrianglesToolStripMenuItem.Click += new System.EventHandler(this.selectTrianglesToolStripMenuItem_Click);
             // 
             // FillColorButton
             // 
@@ -808,27 +830,6 @@
             this.trackBar1.TabIndex = 5;
             this.trackBar1.Tag = "Border Width";
             this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
-            // 
-            // allToolStripMenuItem3
-            // 
-            this.allToolStripMenuItem3.Name = "allToolStripMenuItem3";
-            this.allToolStripMenuItem3.Size = new System.Drawing.Size(195, 34);
-            this.allToolStripMenuItem3.Text = "All";
-            this.allToolStripMenuItem3.Click += new System.EventHandler(this.selectTrianglesToolStripMenuItem_Click);
-            // 
-            // equilateralToolStripMenuItem2
-            // 
-            this.equilateralToolStripMenuItem2.Name = "equilateralToolStripMenuItem2";
-            this.equilateralToolStripMenuItem2.Size = new System.Drawing.Size(195, 34);
-            this.equilateralToolStripMenuItem2.Text = "Equilateral";
-            this.equilateralToolStripMenuItem2.Click += new System.EventHandler(this.selectEquilateralTrianglesToolStripMenuItem_Click);
-            // 
-            // leftAngleToolStripMenuItem2
-            // 
-            this.leftAngleToolStripMenuItem2.Name = "leftAngleToolStripMenuItem2";
-            this.leftAngleToolStripMenuItem2.Size = new System.Drawing.Size(195, 34);
-            this.leftAngleToolStripMenuItem2.Text = "Left Angle";
-            this.leftAngleToolStripMenuItem2.Click += new System.EventHandler(this.selectLeftAngleTrianglesToolStripMenuItem_Click);
             // 
             // viewPort
             // 
